@@ -7,6 +7,7 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session');
 
 var dbURL = process.env.MONGOLAB_URI || "mongodb://heroku_52s8kmw8:afqmd8ob91p1e07lm47bkdku75@ds015929.mlab.com:15929/heroku_52s8kmw8";
 
@@ -24,6 +25,12 @@ app.use('/assets/', express.static(path.resolve(__dirname + '../../client/')));
 app.use(compression());
 app.use(bodyParser.urlencoded({
 	extended: true
+}));
+app.use(session({
+	key: "sessionid",
+	secret: 'Domo Arigato',
+	resave: true,
+	saveUninitialized: true
 }));
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
