@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var url = require('url');
+var csrf = require('csurf');
 
 var dbURL = process.env.MONGOLAB_URI || "mongodb://heroku_vx5l7j43:a7fbhtn2cmv0u1e9mq6vijg2r1@ds025419.mlab.com:25419/heroku_vx5l7j43";
 
@@ -50,11 +51,21 @@ app.use(session({
 	secret: 'Domo Arigato',
 	resave: true,
 	saveUninitialized: true
+	cookie: {
+		httpOnly: true
+	}
 }));
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
 app.use(favicon(__dirname + '/../client/img/favicon.png'));
+app.disable('x-powered-by');
 app.use(cookieParser());
+app.use(csrf());
+app.use(function(err, req, res, next){
+	if(err.code !== 'EBADCSRFTOKEN') return next(err)
+		
+	return;
+})
 router(app);
 
 app.listen(port, function(err){
