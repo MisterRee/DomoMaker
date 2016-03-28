@@ -50,7 +50,7 @@ app.use(session({
 	}),
 	secret: 'Domo Arigato',
 	resave: true,
-	saveUninitialized: true
+	saveUninitialized: true,
 	cookie: {
 		httpOnly: true
 	}
