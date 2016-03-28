@@ -11,7 +11,7 @@ var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var url = require('url');
 
-var dbURL = process.env.MONGOLAB_URI || "mongodb://heroku_52s8kmw8:afqmd8ob91p1e07lm47bkdku75@ds015929.mlab.com:15929/heroku_52s8kmw8";
+var dbURL = process.env.MONGOLAB_URI || "mongodb://heroku_vx5l7j43:a7fbhtn2cmv0u1e9mq6vijg2r1@ds025419.mlab.com:25419/heroku_vx5l7j43";
 
 var db = mongoose.connect(dbURL, function(err){
 	if(err){
@@ -27,8 +27,8 @@ var redisURL = {
 
 var redisPASS;
 
-if(process.env.REDISCLOUD_URL){
-	redisURL = url.parse(process.env.REDISCLOUD_URL);
+if(process.env.redis://rediscloud:xioZGY3lnFy7YMIM@pub-redis-12129.us-east-1-2.5.ec2.garantiadata.com:12129){
+	redisURL = url.parse(process.env.redis://rediscloud:xioZGY3lnFy7YMIM@pub-redis-12129.us-east-1-2.5.ec2.garantiadata.com:12129);
 	redisPASS = redisIRL.auth.split(":")[1];
 }
 
