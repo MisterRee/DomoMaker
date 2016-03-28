@@ -27,8 +27,8 @@ var redisURL = {
 
 var redisPASS;
 
-if(process.env.redis://rediscloud:xioZGY3lnFy7YMIM@pub-redis-12129.us-east-1-2.5.ec2.garantiadata.com:12129){
-	redisURL = url.parse(process.env.redis://rediscloud:xioZGY3lnFy7YMIM@pub-redis-12129.us-east-1-2.5.ec2.garantiadata.com:12129);
+if(process.env.REDISCLOUD_URL){
+	redisURL = url.parse(process.env.REDISCLOUD_URL);
 	redisPASS = redisIRL.auth.split(":")[1];
 }
 
