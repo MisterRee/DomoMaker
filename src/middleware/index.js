@@ -19,7 +19,7 @@ var requiresSecure = function(req, res, next){
 	next();
 };
 
-var byPassSecure = function(req, res, next){
+var bypassSecure = function(req, res, next){
 	next();
 }
 

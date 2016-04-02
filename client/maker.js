@@ -24,7 +24,7 @@ $(document).ready(function() {
             
                 handleError(messageObj.error);
             }
-        });        
+        });
     }
     
     $("#makeDomoSubmit").on("click", function(e) {
@@ -41,5 +41,4 @@ $(document).ready(function() {
         
         return false;
     });
-    
 });
