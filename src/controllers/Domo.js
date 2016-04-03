@@ -23,6 +23,7 @@ var makeDomo = function(req, res){
 		name: req.body.name,
 		level: req.body.level,
 		age: req.body.age,
+		lastFed: req.body.lastFed,
 		owner: req.session.account._id
 	};
 	
@@ -36,8 +37,13 @@ var makeDomo = function(req, res){
 		
 		res.json({redirect: '/maker'});
 	});
-	
+};
+
+var feedDomo = function(req, res){
+	console.log(req);
+	console.log(res);
 };
 
 module.exports.makerPage = makerPage;
 module.exports.make = makeDomo;
+module.exports.feed = feedDomo;

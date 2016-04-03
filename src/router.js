@@ -8,6 +8,7 @@ var router = function(app){
 	app.get("/logout", middleware.requiresLogin, controllers.Account.logout);
 	app.get("/maker", middleware.requiresLogin, controllers.Domo.makerPage);
 	app.post("/maker", middleware.requiresLogin, controllers.Domo.make);
+	app.post("/maker", middleware.requiresLogin, controllers.Domo.feed);
 	app.get("/", middleware.requiresSecure, middleware.requiresLogout, controllers.Account.loginPage);
 }
 

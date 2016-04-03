@@ -41,4 +41,8 @@ $(document).ready(function() {
         
         return false;
     });
+	
+	$(".domo").on("click", function(e){
+		console.log(this.innerHTML);
+	});
 });

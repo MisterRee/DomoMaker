@@ -21,15 +21,15 @@ var DomoSchema = new mongoose.Schema({
 		required: true
 	},
 	
+	lastFed: {
+		type: Date,
+		default: Date.now
+	},
+	
 	age: {
 		type: Number,
 		min: 0,
 		required: true
-	},
-	
-	lastFed: {
-		type: Date,
-		default: Date.now
 	},
 	
 	owner: {
@@ -48,7 +48,9 @@ DomoSchema.methods.toAPI = function() {
 	return {
 			name: this.name,
 			level: this.level,
-			age: this.age
+			age: this.age,
+			lastFed: this.lastFed
+			
 	};
 };
 
@@ -57,7 +59,7 @@ DomoSchema.statics.findByOwner = function(ownerId, callback){
 		owner: mongoose.Types.ObjectId(ownerId)
 	};
 	
-	return DomoModel.find(search).select("name level age").exec(callback);
+	return DomoModel.find(search).select("name level age lastFed").exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
